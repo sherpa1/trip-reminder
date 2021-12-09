@@ -2,7 +2,7 @@
 
 ## Variables d'environnement
 
-A compléter sur la base des fichiers d'exemple :
+Fichiers à créer à la racine du répertoire principal et à compléter sur la base des fichiers d'exemple :
 
 - .env.strapi
 - .env.mariadb
