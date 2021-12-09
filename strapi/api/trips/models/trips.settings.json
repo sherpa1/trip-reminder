@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trips",
+  "info": {
+    "name": "trips"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true
+    },
+    "planned_on": {
+      "type": "date"
+    },
+    "done": {
+      "type": "boolean",
+      "default": false
+    },
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "trips"
+    },
+    "notes": {
+      "via": "trip",
+      "collection": "notes"
+    }
+  }
+}

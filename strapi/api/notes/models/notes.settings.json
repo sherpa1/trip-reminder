@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notes",
+  "info": {
+    "name": "notes"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "string",
+      "required": true
+    },
+    "position": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "done": {
+      "type": "boolean",
+      "default": false
+    },
+    "trip": {
+      "model": "trips",
+      "via": "notes"
+    }
+  }
+}
