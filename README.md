@@ -91,15 +91,28 @@ Des données d'exemple peuvent être importées dans la base de données Mariadb
 ```
 docker-compose up
 ```
+
+ou
+
+```
+docker-compose up -d
+```
+
 - Fermer les services
 
 ```
 docker-compose stop
 ```
 
+- Ré-initialiser les services
+
+```
+docker-compose down
+```
+
 ou
 
-Raccourci CTRL + C
+Raccourci clavier CTRL + C
 
 ---
 
