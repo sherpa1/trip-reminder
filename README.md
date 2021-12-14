@@ -1,15 +1,16 @@
 # TRIP REMINDER
 
-## Variables d'environnement
+## Variables d'environnement utilisées par les services Docker
 
-Fichiers à créer à la racine du répertoire principal et à compléter sur la base des fichiers d'exemple :
+Fichiers à créer à la racine du répertoire principal et à compléter sur la base des fichiers fournis en exemple :
 
 - .env.strapi
 - .env.mariadb
 
-## Strapi
+## Strapi (CMS Headless)
 
-http://localhost:1337/admin/
+- Back Office : http://localhost:1337/admin/
+- Front Office : http://localhost:1337/admin/
 
 ### API Rest
 
@@ -53,6 +54,8 @@ Si l'accès aux données est réservé aux utilisateurs connectés, renseigner l
 
 Pour gérer l'accès aux collections de données
 
+http://localhost:1337/admin/settings/users-permissions/roles
+
 Paramètres / Users & permissions plugin / Rôles & permissions
 
 - Authenticated = utilisateur connecté
@@ -64,6 +67,8 @@ Sélectionner la collection et attribuer les droits pour chaque action que vous 
 
 ## Client web React.js
 
+http://localhost:3000
+
 Le client web consomme l'API Rest fournie par Strapi.
 
 Pour que le client web accède aux données exposées par l'API, les règles d'accès doivent être ajustées (cf. Gestion de l'accès à l'API et des actions autorisées sur les ressources).
@@ -72,7 +77,7 @@ Pour que le client web accède aux données exposées par l'API, les règles d'a
 
 - Démarrer le projet (après avoir lancé les services Docker) : `yarn start`
 
-![aperçu de l'application web](./web.png)
+![aperçu de l'application web réalisée avec React.js](./web-screenshot.png)
 
 ## Adminer
 
