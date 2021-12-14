@@ -64,7 +64,15 @@ Sélectionner la collection et attribuer les droits pour chaque action que vous 
 
 ## Client web React.js
 
+Le client web consomme l'API Rest fournie par Strapi.
+
+Pour que le client web accède aux données exposées par l'API, les règles d'accès doivent être ajustées (cf. Gestion de l'accès à l'API et des actions autorisées sur les ressources).
+
 - Installer les dépendances du projet avec la commande `yarn` ou `npm install` (depuis la racine du projet React.js "./trip_reminder_web_app").
+
+- Démarrer le projet (après avoir lancé les services Docker) : `yarn start`
+
+![aperçu de l'application web](./web.png)
 
 ## Adminer
 
@@ -74,6 +82,8 @@ http://localhost:8181
 - Utilisateur : cf. variables d'environnement
 - Mdp : cf. variables d'environnement
 - BDD : cf. variables d'environnement
+
+Des données d'exemple peuvent être importées dans la base de données Mariadb depuis Adminer (./example_data.sql).
 
 ## Commandes Docker Compose
 

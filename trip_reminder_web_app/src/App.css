@@ -28,7 +28,7 @@ ul {
 li {
   background-color: yellow;
   border-radius: 1em;
-  margin-left: 2em;
+  margin: 0 0 1em 2em;
   padding: 0.5em 1.5em 0.5em 1.5em;
   font-weight: bold;
 }
