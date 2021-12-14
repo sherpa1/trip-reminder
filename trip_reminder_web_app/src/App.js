@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+import "./App.css";
+
+axios.defaults.baseURL = 'http://localhost:1337';
 
 function App() {
+
+  const [trips, setTrips] = useState([]);
+
+  const fetch_trips = async () => {
+    try {
+      const result = await axios.get('/trips');
+      setTrips(result.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+
+    fetch_trips();
+
+  }, []);
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {trips.map(a_trip => <article>
+        <h1>{a_trip.name}</h1>
+        <h2>Planned on : {a_trip.planned_on}</h2>
+        <ul>
+          {a_trip.notes.map(a_note => <li className={a_note.done ? "done" : "todo"}>{a_note.content}</li>)}
+        </ul>
+      </article>)}
     </div>
   );
 }

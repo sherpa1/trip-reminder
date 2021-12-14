@@ -9,9 +9,6 @@ Fichiers à créer à la racine du répertoire principal et à compléter sur la
 
 ## Strapi
 
-john@doe.com
-Azerty123
-
 http://localhost:1337/admin/
 
 ### API Rest
@@ -64,6 +61,10 @@ Paramètres / Users & permissions plugin / Rôles & permissions
 Encadré Permissions / Bloc Application
 
 Sélectionner la collection et attribuer les droits pour chaque action que vous souhaitez autoriser
+
+## Client web React.js
+
+- Installer les dépendances du projet avec la commande `yarn` ou `npm install` (depuis la racine du projet React.js "./trip_reminder_web_app").
 
 ## Adminer
 
