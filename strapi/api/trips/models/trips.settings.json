@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "trips",
   "info": {
-    "name": "trips"
+    "name": "trips",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -13,7 +14,7 @@
   "attributes": {
     "name": {
       "type": "string",
-      "unique": true
+      "unique": false
     },
     "planned_on": {
       "type": "date"
@@ -22,7 +23,7 @@
       "type": "boolean",
       "default": false
     },
-    "users_permissions_user": {
+    "user": {
       "plugin": "users-permissions",
       "model": "user",
       "via": "trips"

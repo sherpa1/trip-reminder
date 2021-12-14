@@ -1,48 +1,35 @@
 services:
-  trip_strapi:
-    container_name: trip_strapi
+  trip_reminder_strapi:
+    container_name: trip_reminder_strapi
     image: strapi/strapi
-    ports: 
+    ports:
       - 1337:1337
     env_file:
       - ./.env.strapi
-    # environment:
-    #   DATABASE_CLIENT: mysql
-    #   DATABASE_HOST: trip_mariadb
-    #   DATABASE_PORT: 3306
-    #   DATABASE_NAME: strapi
-    #   DATABASE_USERNAME: strapi
-    #   DATABASE_PASSWORD: strapi
-    #   DATABASE_SSL: 'false'
     volumes:
       - ./strapi:/srv/app
     depends_on:
-      - trip_mariadb
+      - trip_reminder_mariadb
     networks:
       - trip_reminder
 
-  trip_mariadb:
-    container_name: trip_mariadb
+  trip_reminder_mariadb:
+    container_name: trip_reminder_mariadb
     image: mariadb
     volumes:
       - ./data:/var/lib/mysql
     env_file:
-       - ./.env.mariadb
-    # environment:
-    #   MYSQL_ROOT_PASSWORD: strapi
-    #   MYSQL_DATABASE: strapi
-    #   MYSQL_USER: strapi
-    #   MYSQL_PASSWORD: strapi
+      - ./.env.mariadb
     networks:
       - trip_reminder
 
-  trip_adminer:
-    container_name: trip_adminer
+  trip_reminder_adminer:
+    container_name: trip_reminder_adminer
     image: adminer
     ports:
       - 8181:8080
     depends_on:
-      - trip_mariadb
+      - trip_reminder_mariadb
     networks:
       - trip_reminder
 
