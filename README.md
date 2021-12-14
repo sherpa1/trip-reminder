@@ -92,7 +92,7 @@ Des données d'exemple peuvent être importées dans la base de données Mariadb
 
 ## Commandes Docker Compose
 
-- Initialisation des services
+- Initialiser les services
 ```
 docker-compose up
 ```
