@@ -33,6 +33,17 @@ services:
     networks:
       - trip_reminder
 
+  trip_reminder_nginx:
+    container_name: trip_reminder_nginx
+    image: nginx
+    volumes:
+      - ./trip_reminder_web_app/build:/var/www/trip_reminder
+      - ./nginx:/etc/nginx/conf.d
+    ports:
+      - 8282:80
+    networks:
+      - trip_reminder
+
 networks:
   trip_reminder:
     driver: bridge

@@ -119,6 +119,20 @@ ou
 
 Raccourci clavier CTRL + C
 
+## NGINX
+
+- Générer un build de l'application React.js avec la commande :
+`yarn build`
+
+effectuée depuis `./trip_reminder_web_app`
+
+La gestion des volumes de Docker permet de récupérer le contenu de `/trip_reminder_web_app/build` et l'utiliser en tant que contenu du site configuré par défaut dans NGINX, à l'emplacement `/var/www/trip_reminder` du container trip_reminder_nginx.
+
+- Consulter l'application à l'adresse http://localhost:8282
+
+- L'application web en cours de développement reste consultable à l'adresse http://localhost:3000 (après avoir lancé la commande `yarn sart` depuis le dossier racine du projet React.js).
+
+
 ---
 
 **Alexandre Leroux**
