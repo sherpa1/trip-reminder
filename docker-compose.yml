@@ -1,35 +1,57 @@
 services:
-  trip_reminder_strapi:
-    container_name: trip_reminder_strapi
-    image: strapi/strapi
+  trip_reminder_directus:
+    container_name: trip_reminder_directus
+    image: directus/directus:latest
     ports:
-      - 1337:1337
-    env_file:
-      - ./.env.strapi
+      - 8055:8055
     volumes:
-      - ./strapi:/srv/app
+      # By default, uploads are stored in /directus/uploads
+      # Always make sure your volumes matches the storage root when using
+      # local driver
+      - ./directus/uploads:/directus/uploads
+      # Make sure to also mount the volume when using SQLite
+      # - ./directus/database:/directus/database
+      # If you want to load extensions from the host
+      # - ./directus/extensions:/directus/extensions
+    networks:
+      - trip_reminder
     depends_on:
-      - trip_reminder_mariadb
+      - trip_reminder_redis
+      - trip_reminder_pgsql
+    env_file:
+      - .env.directus
+
+  trip_reminder_pgsql:
+    container_name: trip_reminder_pgsql
+    image: postgis/postgis:13-master
+    volumes:
+      - ./data/database:/var/lib/postgresql/data
+    networks:
+      - trip_reminder
+    env_file:
+      - .env.pgsql
+
+  trip_reminder_redis:
+    container_name: trip_reminder_redis
+    image: redis:6
     networks:
       - trip_reminder
 
-  trip_reminder_mariadb:
-    container_name: trip_reminder_mariadb
-    image: mariadb
-    volumes:
-      - ./data:/var/lib/mysql
-    env_file:
-      - ./.env.mariadb
-    networks:
-      - trip_reminder
+  # trip_reminder_mariadb:
+  #   container_name: trip_reminder_mariadb
+  #   image: mariadb
+  #   volumes:
+  #     - ./data:/var/lib/mysql
+  #   env_file:
+  #     - ./.env.mariadb
+  #   networks:
+  #     - trip_reminder
 
   trip_reminder_adminer:
     container_name: trip_reminder_adminer
     image: adminer
     ports:
       - 8181:8080
-    depends_on:
-      - trip_reminder_mariadb
     networks:
       - trip_reminder
 
